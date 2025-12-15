@@ -1,65 +1,58 @@
-# BizTrack POS SaaS (Multi-Tenant)
+# BizTrack POS SaaS (Multi-Tenant) – Backend
 
-BizTrack is a **production-oriented Multi-Tenant POS SaaS backend** built using **Spring Boot**.  
-This repository currently contains the **initial backend setup**, created with scalability and SaaS architecture in mind.
+A **production-oriented Spring Boot backend** for a **Multi-Tenant POS (Point of Sale) SaaS application**, built with **Spring Boot + Spring Security + JWT authentication**.
 
----
-
-##  Current Progress
-
-The project is in its **initial foundation phase**.  
-So far, the following has been completed:
-
-- Spring Boot backend initialized using Spring Initializr
-- Maven-based project structure configured
-- Application entry point created
-- Basic configuration files added
-- Project successfully running locally
-- Git repository initialized with clean commit history
-- GitHub repository connected and pushed
+This repository is designed in a **beginner-friendly way**, but follows **real industry practices** so that learners can understand **how real backend systems are built**.
 
 ---
 
-## Tech Stack (Current)
+##  Tech Stack
 
 - Java 17+
 - Spring Boot
+- Spring Security
+- JWT (JSON Web Token)
 - Maven
-- Git & GitHub
+- MySQL / PostgreSQL (configurable)
+- Git & GitHub (industry-grade flow)
 
 ---
 
-##  Project Structure
-
+##  Project Structure (Important)
 ```
-BizTrack-POS/
-├── src/
-│ ├── main/
-│ │ ├── java/
-│ │ │ └── com.biztrack.pos
-│ │ │ └── BizTrackPosApplication.java
-│ │ └── resources/
-│ │ └── application.properties
-│ └── test/
-│ └── BizTrackPosApplicationTests.java
-├── pom.xml
-├── mvnw
-├── mvnw.cmd
-├── .gitignore
-└── README.md
+src/main/java/com/biztrack/pos
+│
+├── configuration
+│ ├── SecurityConfig.java
+│ ├── JwtValidator.java
+│ ├── JwtProvider.java
+│ └── JwtConstants.java
+│
+├── BizTrackPosApplication.java
+│
+src/main/resources
+│
+├── application.properties
 ```
 
 ---
 
-## How to Run the Project
+##  Step-by-Step: What We Have Built So Far
 
-### Prerequisites
-- Java 17 or above
-- Maven
-- Git
+This section explains **each file in simple terms**, so even beginners can follow.
 
-### Steps
-```bash
-mvn clean install
-mvn spring-boot:run
+---
+
+##  Spring Boot Project Setup
+
+The project was created using **Spring Initializr** and imported into **IntelliJ IDEA**.
+
+### What this gives us
+- A ready-to-run Spring Boot application
+- Maven build system
+- Clean project structure
+
+Main entry file:
+```java
+BizTrackPosApplication.java
 ```
