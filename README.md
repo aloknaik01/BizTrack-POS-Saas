@@ -56,3 +56,43 @@ Main entry file:
 ```java
 BizTrackPosApplication.java
 ```
+
+## Database Configuration 
+Database configuration is done in:
+```java
+src/main/resources/application.properties
+```
+This allows the backend to connect to a relational database.
+
+ ## Spring Security Configuration (SecurityConfig.java)
+
+```java
+configuration/SecurityConfig.java
+```
+## 🔐 Spring Security & JWT Implementation
+
+This section explains **how security is implemented** in this project and **why each part exists**, in a beginner-friendly way.
+
+---
+
+## ✅ What This Security Setup Does
+
+- Makes the application **stateless** (required for JWT)
+- Secures APIs using **role-based authorization**
+- Adds a **JWT validation filter**
+- Enables **CORS** for frontend applications
+
+---
+
+## 🔹 Stateless Session
+
+```java
+sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+```
+## API Authorization Rules
+```java
+.requestMatchers("/api/**").authenticated()
+.requestMatchers("/api/super-admin/**").hasRole("ADMIN")
+.anyRequest().permitAll()
+
+```
