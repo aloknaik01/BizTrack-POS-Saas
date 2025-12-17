@@ -12,7 +12,7 @@ public class UserDto {
     private String email;
     private String phone;
     private UserRole role;
-
+    private String password;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private LocalDateTime lastLogin;
