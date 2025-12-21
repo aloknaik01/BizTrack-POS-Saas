@@ -32,7 +32,7 @@ public class AuthServiceImpl implements AuthService {
     private final CustomUserImplementaion customUserImplementaion;
 
     @Override
-    public AuthService signup(UserDto userDto) throws UserException {
+    public AuthResponse signup(UserDto userDto) throws UserException {
         User user = userRepository.findByEmail(userDto.getEmail());
         if(user != null){
             throw new UserException("Email id already registered");
@@ -66,11 +66,11 @@ public class AuthServiceImpl implements AuthService {
         authResponse.setMessage("Registered Successfully!");
         authResponse.setUser(UserMapper.toDTO(savesUSer));
 
-        return (AuthService) authResponse;
+        return  authResponse;
     }
 
     @Override
-    public AuthService login(UserDto userDto) throws UserException {
+    public AuthResponse  login(UserDto userDto) throws UserException {
 
         String email = userDto.getEmail();
         String password = userDto.getPassword();
@@ -95,7 +95,7 @@ User user = userRepository.findByEmail(email);
         authResponse.setJwt(jwt);
         authResponse.setMessage("Logged Successfully!");
         authResponse.setUser(UserMapper.toDTO(user));
-        return (AuthService) authResponse;
+        return authResponse;
     }
 
     private Authentication authenticate(String email, String password) throws UserException {

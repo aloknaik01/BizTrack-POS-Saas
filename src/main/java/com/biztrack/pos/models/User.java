@@ -28,7 +28,6 @@ public class User {
  @Email(message = "please ente a valid Email")
  private String email;
 
-
  private String phone;
 
 @Column(nullable = false)
