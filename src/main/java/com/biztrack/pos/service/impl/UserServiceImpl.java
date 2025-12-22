@@ -6,6 +6,7 @@ import com.biztrack.pos.models.User;
 import com.biztrack.pos.repository.UserRepository;
 import com.biztrack.pos.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,8 +31,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getCurrentUser() {
-        return null;
+    public User getCurrentUser() throws UserException {
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userRepository.findByEmail(email);
+        if(user == null) {
+            throw new UserException("User Not Found!");
+        }
+        return user;
     }
 
     @Override

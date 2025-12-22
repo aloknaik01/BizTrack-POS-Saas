@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface UserService {
     User getUserFromJwtToken(String token) throws UserException;
-    User getCurrentUser();
+    User getCurrentUser() throws UserException;
     User getUserByEmail(String email);
     User getUserById(Long id);
     List<User> getAllUser();
