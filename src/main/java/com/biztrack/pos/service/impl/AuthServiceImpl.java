@@ -108,7 +108,7 @@ User user = userRepository.findByEmail(email);
         }
 
 
-        if(passwordEncoder.matches(password, userDetails.getPassword()))
+        if(!passwordEncoder.matches(password, userDetails.getPassword()))
             throw new UserException("Passowrd Doesnot Match");
 
 

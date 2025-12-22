@@ -28,7 +28,7 @@ public class UserController {
 
 
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     public ResponseEntity<UserDto> getUserById(
             @RequestHeader("Authorization") String jwt,
             @PathVariable Long id
